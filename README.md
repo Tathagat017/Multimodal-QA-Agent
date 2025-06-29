@@ -3,6 +3,8 @@
 ![image](https://github.com/user-attachments/assets/e15bcdc9-4d22-4396-aa85-c42953c1da94)
 ![image](https://github.com/user-attachments/assets/7a46780b-0a60-4d62-abf3-d6396934e69e)
 ![image](https://github.com/user-attachments/assets/3048aef0-8f0c-45e4-8bc2-a3ba4e0b0c1d)
+![image](https://github.com/user-attachments/assets/70296425-9986-42d7-9216-83c3b54b960b)
+
 
 
 A cutting-edge web application powered by **Qwen 2.5 VL 7B**, Alibaba Cloud's state-of-the-art vision-language model. Upload images and ask questions to get intelligent, multilingual responses with support for 29 languages and advanced document analysis.
