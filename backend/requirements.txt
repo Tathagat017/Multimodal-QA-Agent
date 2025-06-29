@@ -1,0 +1,28 @@
+# Core FastAPI dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+pydantic==2.5.0
+pillow==10.1.0
+python-dotenv==1.0.0
+httpx==0.25.2
+
+# PyTorch - Install from PyTorch official (more reliable)
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Hugging Face dependencies
+transformers>=4.40.0
+huggingface-hub>=0.16.0
+accelerate>=0.20.0
+
+# Required for Qwen models
+sentencepiece>=0.1.99
+protobuf>=3.20.0
+numpy>=1.24.0
+safetensors>=0.3.0
+
+# Optional: For better performance (uncomment if you have compatible GPU)
+# flash-attn>=2.0.0
+# bitsandbytes>=0.41.0 
