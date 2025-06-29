@@ -60,6 +60,12 @@ function App() {
         );
       }
 
+      // Check if request was cancelled
+      if (response.cancelled) {
+        console.log("Request was cancelled by user");
+        return; // Don't update result or add to history
+      }
+
       setResult(response);
 
       // Add to history
@@ -80,6 +86,12 @@ function App() {
       setLoading(false);
     }
   }, [question, image, imageUrl, selectedModel]);
+
+  const handleCancel = useCallback(() => {
+    qaService.cancelCurrentRequest();
+    setLoading(false);
+    setError(null);
+  }, []);
 
   const handleClear = useCallback(() => {
     setImage(null);
@@ -129,6 +141,7 @@ function App() {
                   question={question}
                   onQuestionChange={setQuestion}
                   onSubmit={handleSubmit}
+                  onCancel={handleCancel}
                   loading={loading}
                   disabled={isSubmitDisabled}
                 />

@@ -5,6 +5,7 @@ const QuestionForm = ({
   question,
   onQuestionChange,
   onSubmit,
+  onCancel,
   loading,
   disabled,
 }) => {
@@ -61,29 +62,47 @@ const QuestionForm = ({
           ⏳ First AI response may take 1-2 minutes as the model loads.
           Subsequent responses will be faster.
         </p>
+        {loading && (
+          <p className="text-sm text-blue-600 mt-1">
+            💡 Tip: Click "Ask Question" again to cancel the current request and
+            start a new one.
+          </p>
+        )}
       </div>
 
-      <button
-        type="submit"
-        disabled={disabled || loading}
-        className={`w-full flex items-center justify-center space-x-2 py-3 px-4 rounded-lg font-medium transition-colors ${
-          disabled || loading
-            ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-            : "bg-blue-600 text-white hover:bg-blue-700"
-        }`}
-      >
-        {loading ? (
-          <>
-            <Loader2 className="w-5 h-5 animate-spin" />
-            <span>AI is thinking... (This may take 1-2 minutes)</span>
-          </>
-        ) : (
-          <>
-            <Send className="w-5 h-5" />
-            <span>Ask Question</span>
-          </>
+      <div className="flex space-x-2">
+        <button
+          type="submit"
+          disabled={disabled || loading}
+          className={`flex-1 flex items-center justify-center space-x-2 py-3 px-4 rounded-lg font-medium transition-colors ${
+            disabled || loading
+              ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+              : "bg-blue-600 text-white hover:bg-blue-700"
+          }`}
+        >
+          {loading ? (
+            <>
+              <Loader2 className="w-5 h-5 animate-spin" />
+              <span>AI is thinking... (This may take 1-2 minutes)</span>
+            </>
+          ) : (
+            <>
+              <Send className="w-5 h-5" />
+              <span>Ask Question</span>
+            </>
+          )}
+        </button>
+
+        {loading && onCancel && (
+          <button
+            type="button"
+            onClick={onCancel}
+            className="px-4 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium"
+          >
+            Cancel
+          </button>
         )}
-      </button>
+      </div>
     </form>
   );
 };
